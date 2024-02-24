@@ -52,11 +52,11 @@ func (ls *LetStatement) statementNode() {}
 func (ls *LetStatement) TokenLiteral() string {
 	return ls.Token.Literal
 }
-func (ls *LetStatement) String() string() {
+func (ls *LetStatement) String() string {
 	var out bytes.Buffer
 
 	out.WriteString(ls.TokenLiteral() + " ")
-	out.WriteString(ls.NameString())
+	out.WriteString(ls.Name.String())
 	out.WriteString(" = ")
 
 	if ls.Value != nil {
@@ -82,7 +82,7 @@ func (i *Identifier) String() string {
 
 type ReturnStatement struct {
 	Token token.Token // token.RETURN
-	Value Expression
+	ReturnValue Expression
 }
 
 func (rs *ReturnStatement) statementNode() {}
